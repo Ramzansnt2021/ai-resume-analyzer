@@ -40,7 +40,7 @@ const Upload = () => {
     if (!imageFile.file)
       return setStatusText('Error: Failed to convert PDF to image')
 
-    setStatusText('Uploading the image...')
+    setStatusText('Uploading the file...')
     const uploadedImage = await fs.upload([imageFile.file])
     if (!uploadedImage) return setStatusText('Error: Failed to upload image')
 
@@ -74,7 +74,7 @@ const Upload = () => {
     await kv.set(`resume:${uuid}`, JSON.stringify(data))
     setStatusText('Analysis complete, redirecting...')
     console.log(data)
-    // navigate(`/resume/${uuid}`)
+    navigate(`/resume/${uuid}`)
   }
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
